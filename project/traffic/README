@@ -1,0 +1,5 @@
+# EXPERIMENTS PROCESS
+1. dropout = 0.5 accuracy is still low after 10 epochs
+2. dropout = 0.2 accuracy improved a lot
+3. without dropout, perfect result seemingly, probably overfitting.
+4. dropout = 0.05 is best!

@@ -133,7 +133,7 @@ class NimAI():
         """
         q_values = []
         for (i, j) in Nim.available_actions(state):
-            q_value = self.q.get((tuple(state), (i, j)), 0)
+            q_value = self.get_q_value(state, (i, j))
             q_values.append(q_value)
         return max(q_values) if q_values != [] else 0    
         
@@ -154,7 +154,7 @@ class NimAI():
         options is an acceptable return value.
         """
         best_value = self.best_future_reward(state)
-        best_actions = [t for t in Nim.available_actions(state) if self.q.get((tuple(state), t), 0)==best_value]
+        best_actions = [t for t in Nim.available_actions(state) if self.get_q_value(state, t)==best_value]
         if epsilon:
             if random.random() < self.epsilon:
                 return random.choice(list(Nim.available_actions(state)))
